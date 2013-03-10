@@ -1,7 +1,10 @@
 package br.unip.lpoo.aula2;
 
-public class Usuario {
+public class Usuario  
+{
 
+	public int id=0;
+	
 	private String nome=null;
 	private String sobreNome = null;
 	private Boolean ativo = false;
@@ -13,6 +16,15 @@ public class Usuario {
 		this.ativo = ativo;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
 	public String getNome() {
 		return nome;
 	}
@@ -45,7 +57,7 @@ public class Usuario {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+		
 		if(args.length==0) {
 			System.out.println("Argumentos inválidos!");
 			System.out.println("Você deve colocar os seguintes argumentos:");

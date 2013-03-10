@@ -10,8 +10,8 @@ public class ExemploErroVariavel {
 		String nome=null;
 		String sobreNome=null;
 		Boolean ativo=false;
-		public String getNome() {
-			return this.nome;
-		}
+//		public String getNome() {
+//			return this.nome;
+//		}
 	}
 }
