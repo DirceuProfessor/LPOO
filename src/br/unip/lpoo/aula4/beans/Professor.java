@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.unip.lpoo.aula2.Usuario;
 
-public class Professor extends Usuario{
+public class Professor extends Usuario implements Entidade{
 
 	public Professor() {
 		// TODO Auto-generated constructor stub
@@ -27,7 +27,8 @@ public class Professor extends Usuario{
 	}
 	@Override
 	public String toString() {
-		return "Professor [cursos=" + cursos + ", materias=" + materias + "]";
+		return "Professor [nome=" +nome+" sobrenome="+sobreNome+" ativo="+ativo+
+				" cursos=" + cursos + ", materias=" + materias + "]";
 	}
 	@Override
 	public int hashCode() {

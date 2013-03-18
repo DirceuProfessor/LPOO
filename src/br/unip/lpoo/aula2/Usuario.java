@@ -5,9 +5,9 @@ public class Usuario
 
 	public int id=0;
 	
-	private String nome=null;
-	private String sobreNome = null;
-	private Boolean ativo = false;
+	protected String nome=null;
+	protected String sobreNome = null;
+	protected Boolean ativo = false;
 
 	public Usuario(String nome, String sobreNome, Boolean ativo) {
 		super();
@@ -59,8 +59,8 @@ public class Usuario
 	public static void main(String[] args) {
 		
 		if(args.length==0) {
-			System.out.println("Argumentos inválidos!");
-			System.out.println("Você deve colocar os seguintes argumentos:");
+			System.out.println("Argumentos invÔøΩlidos!");
+			System.out.println("VocÔøΩ deve colocar os seguintes argumentos:");
 			System.out.println("-n <nome>");
 			System.out.println("-sn <sobrenome>");
 			System.out.println("-a <true|false>");
