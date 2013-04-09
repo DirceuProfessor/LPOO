@@ -18,7 +18,7 @@ public class TelaInicial implements ITela{
 		Scanner leitor = new Scanner(System.in);
 		switch(leitor.nextInt()){
 		case 1 : {
-			new CadastroProfessor(new FileAdministradorDeEntidadesProfessor("/home/dirceu/"));
+			new CadastroProfessor(new FileAdministradorDeEntidadesProfessor("/Users/dirceu/"));
 			break;
 		}
 		case 2 : {

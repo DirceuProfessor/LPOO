@@ -9,6 +9,18 @@ public class ShaLogin implements Login{
 		// TODO Auto-generated constructor stub
 	}
 
+	public void novoMetodo(){
+		
+	}
+	
+	public void novoMetodo(String novoMetodo){
+		
+	}
+	
+	public void novoMetodo(String s, String outra){
+		
+	}
+
 	public static void main(String[] args) {
 		try {
 			byte[] senha = new ShaLogin().encripta(new char[]{'a','b','c'});

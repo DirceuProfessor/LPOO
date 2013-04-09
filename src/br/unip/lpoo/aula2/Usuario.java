@@ -1,21 +1,48 @@
 package br.unip.lpoo.aula2;
 
-public class Usuario  
+import br.unip.lpoo.aula4.beans.Professor;
+
+public class Usuario extends Object 
 {
 
+	public class InnerClass{
+		public InnerClass(){
+			
+		}
+		
+		public void imprimeInner(){
+			System.out.println("Inner");
+		}
+	}
+	
 	public int id=0;
 	
 	protected String nome=null;
 	protected String sobreNome = null;
 	protected Boolean ativo = false;
 
-	public Usuario(String nome, String sobreNome, Boolean ativo) {
-		super();
-		this.nome = nome;
+	public Usuario(int id, String nome, String sobreNome, Boolean ativo) {
+		this(id,nome);
 		this.sobreNome = sobreNome;
 		this.ativo = ativo;
 	}
 
+	
+	public Usuario(int id, String nome){
+		this(id);
+		this.nome = nome;
+	}
+	
+	public Usuario(int id){
+		this();
+		this.id=id;
+	}
+
+	public Usuario() {	
+		super();
+	}
+
+	
 	public int getId() {
 		return id;
 	}
@@ -49,42 +76,53 @@ public class Usuario
 		this.ativo = ativo;
 	}
 
-	public Usuario() {
-
-	}
-
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		if(args.length==0) {
-			System.out.println("Argumentos inv�lidos!");
-			System.out.println("Voc� deve colocar os seguintes argumentos:");
-			System.out.println("-n <nome>");
-			System.out.println("-sn <sobrenome>");
-			System.out.println("-a <true|false>");
-		}else {
-			Usuario us = new Usuario();
-			for(int indice =0; indice<args.length; indice++){
-				if(args[indice].equals("-n")){
-					us.nome = args[indice+1];
-					indice++;
-				}else if(args[indice].equals("-sn")){
-					us.sobreNome = args[indice+1];
-					indice++;
-				}else if(args[indice].equals("-a")){
-					if(args[indice++].equals("true")){
-						us.ativo = true;
-
-					}else if(args[indice++].equals("false")){
-						us.ativo=false;
-					}
-					indice++;
-				}	
-			}
-			System.out.println(us);
-		}
+		Usuario us = new Usuario(3,"Dirceus");
+//		Usuario.InnerClass inner =  us.new InnerClass();
+//		inner.imprimeInner();
+		Professor pf = new Professor();
+		pf.setId(3);
+		pf.setNome("Dirceus");
+		System.out.println("Instanceof "+(pf instanceof Usuario));
+		System.out.println(pf.equals(us));
+		us.equals(us);
+		System.out.println(us.equals(null));
+		Usuario us4 = us;
+		us.equals(us4);
+		Usuario us2 = new Usuario(3,"Dirceu");
+//		System.out.println(us2.equals(us));
+		us.setAtivo(true);
+//		Usuario us = new Usuario();
+//		if(args.length==0) {
+//			System.out.println("Argumentos inv�lidos!");
+//			System.out.println("Voc� deve colocar os seguintes argumentos:");
+//			System.out.println("-n <nome>");
+//			System.out.println("-sn <sobrenome>");
+//			System.out.println("-a <true|false>");
+//		}else {
+//			Usuario us = new Usuario();
+//			for(int indice =0; indice<args.length; indice++){
+//				if(args[indice].equals("-n")){
+//					us.nome = args[indice+1];
+//					indice++;
+//				}else if(args[indice].equals("-sn")){
+//					us.sobreNome = args[indice+1];
+//					indice++;
+//				}else if(args[indice].equals("-a")){
+//					if(args[indice++].equals("true")){
+//						us.ativo = true;
+//
+//					}else if(args[indice++].equals("false")){
+//						us.ativo=false;
+//					}
+//					indice++;
+//				}	
+//			}
+//			System.out.println(us);
+//		}
 		
 	}
 
