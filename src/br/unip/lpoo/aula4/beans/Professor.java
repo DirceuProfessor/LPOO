@@ -39,6 +39,7 @@ public class Professor extends Usuario implements Entidade{
 				+ ((materias == null) ? 0 : materias.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

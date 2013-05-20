@@ -15,6 +15,7 @@ public class TelaInicial implements ITela{
 		System.out.println("2 Alunos ");
 		System.out.println("3 Materias ");
 		System.out.println("4 Cursos ");
+		System.out.println("5 Sair da Aplicação ");
 		Scanner leitor = new Scanner(System.in);
 		switch(leitor.nextInt()){
 		case 1 : {
@@ -32,6 +33,9 @@ public class TelaInicial implements ITela{
 		case 4 : {
 			//new CadastroCurso();
 			break;
+		}
+		case 5 : {
+			System.exit(0);
 		}
 		default : {
 			System.out.println(" Opcao invalida!");

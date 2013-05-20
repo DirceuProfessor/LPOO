@@ -15,14 +15,14 @@ import br.unip.lpoo.aula4.beans.Professor;
 public class FileAdministradorDeEntidadesProfessor implements AdministradorDeEntidades{
 
 	private File db;
-	private File idDb;
+	private File idDb = new File("arquivoInexistente");
 	
 	public FileAdministradorDeEntidadesProfessor(String localizacaoArquivo){
 		this.db = new File(localizacaoArquivo+"Professor.db");
-		this.idDb = new File(localizacaoArquivo+"ProfessorId.db");
-		if(!idDb.exists()){
-			updateIndex(1);
-		}
+//		this.idDb = new File(localizacaoArquivo+"ProfessorId.db");
+//		if(!idDb.exists()){
+//			updateIndex(1);
+//		}
 	}
 	
 	private void updateIndex(int i){
@@ -51,20 +51,55 @@ public class FileAdministradorDeEntidadesProfessor implements AdministradorDeEnt
 			bw.append(toDbLine(prof));
 			bw.close();
 			return true;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (NumberFormatException e){
+			e.printStackTrace();
+			try {
+				BufferedWriter bw = new BufferedWriter(new FileWriter(this.idDb,true));
+				bw.write('0');
+				bw.close();
+				insere(entidade);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+				
+			}	
+			return false;
+			
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 			return false;
 		}
-		
 	}
 
+	
+	
 	@Override
 	public boolean atualiza(Entidade entidade) {
-		// TODO Auto-generated method stub
+		FileWriter arquivo = null;
+		try {
+			arquivo = new FileWriter(this.idDb);
+			arquivo.append('a');
+			arquivo.close();
+			System.out.println("terminou");
+//			arquivo.
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally{
+			if(arquivo != null)
+				try {
+					arquivo.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			System.out.println("finally");
+		}
 		return false;
 	}
 
+	public static void main(String[] args) {
+		new FileAdministradorDeEntidadesProfessor(".").atualiza(new Professor());
+	}
+	
 	@Override
 	public boolean remove(Entidade entidade) {
 		// TODO Auto-generated method stub
